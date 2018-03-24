@@ -17,7 +17,7 @@ public class SwitchNLoop {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
         /*int x = 0;
         if (x == 1) {
            //... 
@@ -39,11 +39,27 @@ public class SwitchNLoop {
                 break;
             }
         }*/
-        
+        do {
         //1. Получаем число
         System.out.println("Введите целое положительное число и нажмите ВВОД:");
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
+        
+        int number = 0;
+        
+        
+        String numberString = sc.nextLine();
+        
+        
+        try{
+            number = Integer.valueOf(numberString);
+        }catch(Exception ex) {
+             if (numberString.equals("exit")){
+                 break;   
+                 
+                         }
+                 
+             System.out.println("Введено неверное число!");
+                 continue;
+        }         
         
         if (number < 0) {
             System.out.println("Неверное число!");
@@ -92,6 +108,7 @@ public class SwitchNLoop {
                     }
                     case 9:{
                         System.out.println("ворон");
+                        break;
                     }
                     default:{
 
@@ -99,7 +116,9 @@ public class SwitchNLoop {
                     }
                 }
             }
-        }        
-    }
+        }   
+                    
+        } while (true);
+    } 
     
 }
